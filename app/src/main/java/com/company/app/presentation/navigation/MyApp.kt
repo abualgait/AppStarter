@@ -1,4 +1,4 @@
-package com.company.app.presentation.util
+package com.company.app.presentation.navigation
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
