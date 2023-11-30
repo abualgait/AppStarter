@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -58,7 +59,7 @@ fun SecondScreen(
                 },
                 modifier = Modifier.background(MaterialTheme.colorScheme.primary)
             ) {
-                Icon(imageVector = Icons.Default.Save, contentDescription = "Save")
+                Icon(imageVector = Icons.Default.Done, contentDescription = "Save")
             }
         },
         snackbarHost = { SnackbarHost(snackbarHostState) }
@@ -76,7 +77,7 @@ fun SecondScreen(
                 onValueChange = {
                     viewModel.onEvent(SecondScreenEvent.EnteredTitle(it))
                 },
-                textStyle = MaterialTheme.typography.headlineLarge,
+                textStyle = MaterialTheme.typography.headlineLarge.copy(color = Color.White),
                 singleLine = true,
             ) {
                 viewModel.onEvent(SecondScreenEvent.ChangeTitleFocus(it))

@@ -12,7 +12,7 @@ import com.company.app.presentation.screen_second.navigation.secondScreenGraph
 import com.company.app.theme.AppTheme
 
 @Composable
-fun MyApp(isNetworkAvailable: Boolean) {
+fun MyApp() {
     AppTheme(
         darkTheme = true,
     ) {
@@ -40,6 +40,6 @@ fun MyApp(isNetworkAvailable: Boolean) {
 @Composable
 fun DefaultPreview() {
     AppTheme {
-        MyApp(true)
+        MyApp()
     }
 }

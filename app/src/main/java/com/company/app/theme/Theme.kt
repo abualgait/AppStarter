@@ -16,7 +16,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import com.company.app.presentation.components.CircularIndeterminateProgressBar
 import com.company.app.presentation.components.ConnectivityMonitor
 import com.company.app.presentation.components.GenericDialog
 import com.company.app.presentation.components.GenericDialogInfo
@@ -88,10 +87,6 @@ fun AppTheme(
                 }
                 content()
             }
-            if (uiState == UIState(loading = true)) {
-                CircularIndeterminateProgressBar()
-            }
-
             if (uiState == UIState(error = true)) {
                 ProcessDialogQueue(dialogQueue = dialogQueue)
             }

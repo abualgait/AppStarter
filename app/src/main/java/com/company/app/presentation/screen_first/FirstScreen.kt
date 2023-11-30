@@ -70,14 +70,14 @@ fun FirstScreen(
                 LazyColumn {
                     item {
                         Text(
-                            text = "Get Data",
+                            text = "Get List of Data",
                             style = MaterialTheme.typography.titleMedium,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(10.dp)
                                 .clickable {
                                     viewModel.onEvent(FirstScreenEvent.GetData)
-                                },
+                                }
+                                .padding(10.dp)
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                     }
@@ -86,10 +86,11 @@ fun FirstScreen(
                             text = it.title,
                             style = MaterialTheme.typography.titleMedium,
                             modifier = Modifier
-                                .padding(10.dp)
+                                .fillMaxWidth()
                                 .clickable {
                                     viewModel.onEvent(FirstScreenEvent.DeleteData(it))
                                 }
+                                .padding(10.dp)
                         )
                     }
 
