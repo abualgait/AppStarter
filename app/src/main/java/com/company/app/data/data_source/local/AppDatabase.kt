@@ -2,7 +2,6 @@ package com.company.app.data.data_source.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.company.app.domain.model.AppEntity
 
 @Database(
     entities = [AppEntity::class],

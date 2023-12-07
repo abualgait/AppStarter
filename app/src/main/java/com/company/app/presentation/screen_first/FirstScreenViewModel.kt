@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.company.app.domain.model.AppEntity
+import com.company.app.domain.model.AppDomainModel
 import com.company.app.domain.use_case.AppUseCases
 import com.company.app.util.ConnectivityManager
 import com.company.app.util.DialogQueue
@@ -63,8 +63,8 @@ class FirstScreenViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    private fun deleteData(appEntity: AppEntity) {
+    private fun deleteData(appDomainModel: AppDomainModel) {
         loading.value = true
-        viewModelScope.launch { appUseCases.deleteData(appEntity) }
+        viewModelScope.launch { appUseCases.deleteData(appDomainModel) }
     }
 }

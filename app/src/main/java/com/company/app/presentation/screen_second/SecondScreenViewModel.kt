@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.company.app.domain.model.AppEntity
-import com.company.app.domain.model.InvalidDataException
+import com.company.app.data.data_source.local.InvalidDataException
+import com.company.app.domain.model.AppDomainModel
 import com.company.app.domain.use_case.AppUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -63,7 +63,7 @@ class SecondScreenViewModel @Inject constructor(
                 viewModelScope.launch {
                     try {
                         appUseCases.addData(
-                            AppEntity(
+                            AppDomainModel(
                                 title = entityTitle.value.text,
                                 id = currententityId
                             )

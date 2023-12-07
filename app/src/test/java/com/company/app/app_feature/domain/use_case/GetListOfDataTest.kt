@@ -2,7 +2,7 @@ package com.company.app.app_feature.domain.use_case
 
 import com.company.app.app_feature.data.repository.FakeDataRepository
 import com.company.app.data.data_source.remote.RetrofitService
-import com.company.app.domain.model.AppEntity
+import com.company.app.domain.model.AppDomainModel
 import com.company.app.domain.use_case.GetListOfData
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.runBlocking
@@ -38,10 +38,10 @@ class GetListOfDataTest {
         fakeRepository = FakeDataRepository(retrofitService)
         getListOfData = GetListOfData(fakeRepository)
 
-        val entitysToInsert = mutableListOf<AppEntity>()
+        val entitysToInsert = mutableListOf<AppDomainModel>()
         ('a'..'z').forEachIndexed { index, c ->
             entitysToInsert.add(
-                AppEntity(
+                AppDomainModel(
                     title = c.toString()
                 )
             )

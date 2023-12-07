@@ -3,6 +3,8 @@ package com.company.app.di
 import android.app.Application
 import androidx.room.Room
 import com.company.app.data.data_source.local.AppDatabase
+import com.company.app.data.data_source.local.AppEntityMapper
+import com.company.app.data.data_source.remote.AppDtoMapper
 import com.company.app.data.data_source.remote.RetrofitService
 import com.company.app.data.repository.AppRepositoryImpl
 import com.company.app.domain.repository.AppRepository
@@ -22,6 +24,16 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object TestAppModule {
+
+    @Provides
+    @Singleton
+    fun provideAppDtoMapper() = AppDtoMapper()
+
+
+    @Provides
+    @Singleton
+    fun provideAppEntityMapper() = AppEntityMapper()
+
 
     @Provides
     @Singleton
@@ -55,8 +67,13 @@ object TestAppModule {
 
     @Provides
     @Singleton
-    fun provideAppRepository(db: AppDatabase, retrofitService: RetrofitService): AppRepository {
-        return AppRepositoryImpl(db.appDao, retrofitService)
+    fun provideAppRepository(
+        db: AppDatabase,
+        retrofitService: RetrofitService,
+        dtoMapper: AppDtoMapper,
+        entityMapper: AppEntityMapper,
+    ): AppRepository {
+        return AppRepositoryImpl(db.appDao, retrofitService, dtoMapper, entityMapper)
     }
 
     @Provides

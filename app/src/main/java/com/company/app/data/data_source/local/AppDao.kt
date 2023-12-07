@@ -1,7 +1,6 @@
 package com.company.app.data.data_source.local
 
 import androidx.room.*
-import com.company.app.domain.model.AppEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
